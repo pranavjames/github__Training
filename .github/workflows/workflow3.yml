@@ -18,7 +18,7 @@ jobs:
         run: echo "Hi and job1"
 
   job2:
-    if: inputs.runJob2 == 'true'
+    if: ${{ github.event.inputs.runJob2 == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Echo Job 2
