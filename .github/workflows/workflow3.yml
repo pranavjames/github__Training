@@ -1,0 +1,25 @@
+
+name: Workflow3
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+    inputs:
+      runJob2: { description: 'Run Job2', required: true, type: boolean, default: false }    
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Job 1
+        run: echo "Hi and job1"
+
+  job2:
+    if: inputs.runJob3 == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Job 2
+        run: echo "Hi and job2"

@@ -1,1 +1,35 @@
 
+name: Workflow2
+
+on:
+  push:
+    branches:
+      - main
+      
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Job 1
+        run: echo "Hi and job1"
+
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Job 2
+        run: echo "Hi and job2"
+
+  job3:
+    if : github.event.action == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Job 3
+        run: echo "Hi and job3"
+
+  job4:
+    if : github.event.action == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Job 4
+        run: echo "Hi and job4"
