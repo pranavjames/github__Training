@@ -8,18 +8,18 @@ on:
 
   workflow_dispatch:
     inputs:
-      runJob2: { description: 'Run Job2', required: true, type: boolean, default: false }    
+      deployToProd: { description: 'Deploy To Prod', required: true, type: boolean, default: false }    
 
 jobs:
-  job1:
+  Stage:
     runs-on: ubuntu-latest
     steps:
       - name: Echo Job 1
-        run: echo "Hi and job1"
+        run: echo "Deploy to Stage"
 
-  job2:
-    if: ${{ github.event.inputs.runJob2 == 'true' }}
+  Prod:
+    if: ${{ github.event.inputs.deployToProd == 'true' }}
     runs-on: ubuntu-latest
     steps:
-      - name: Echo Job 2
-        run: echo "Hi and job2"
+      - name: Prod Step
+        run: echo "Deploying to Prod"
