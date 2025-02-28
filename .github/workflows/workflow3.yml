@@ -14,8 +14,8 @@ jobs:
   Stage:
     runs-on: ubuntu-latest
     steps:
-      - name: Echo Job 1
-        run: echo "Deploy to Stage"
+      - name: Stage Step
+        run: echo "Deploying to Stage"
 
   Prod:
     if: ${{ github.event.inputs.deployToProd == 'true' }}
