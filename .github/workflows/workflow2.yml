@@ -26,10 +26,3 @@ jobs:
     steps:
       - name: Echo Job 3
         run: echo "Hi and job3"
-
-  job4:
-    if : github.event.action == 'workflow_dispatch'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Echo Job 4
-        run: echo "Hi and job4"
